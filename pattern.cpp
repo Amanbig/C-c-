@@ -41,7 +41,7 @@ class stack{
 class pattern{
     public:
     string s;
-    int chara=0,para=0;
+    int chara=0,para=1;
     void input();
     void search();
     void freq_word();
