@@ -41,7 +41,6 @@ class stack{
 class pattern{
     public:
     string s;
-    int chara=0,para=1;
     void input();
     void search();
     void freq_word();
@@ -131,7 +130,7 @@ void pattern::convert(){
     }
 }
 void pattern::count(){
-    int a=0;
+    int a=0,para=1,chara=0;
     for(int i=0;i<s.length();i++){
         a=i;
         chara++;
