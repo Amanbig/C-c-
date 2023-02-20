@@ -60,9 +60,21 @@ class graph{
         cin>>id;
         cout<<"Enter name of vertex\n";
         cin>>name;
-        u.getvertex(id,name);
-        v.push_back(u);
-        cout<<"Vertex added\n";
+        bool a=true;
+        for(int i=0;i<v.size();i++){
+            if(v[i].getid()==id){
+                a=false;
+                break;
+            }
+        }
+        if(a){
+            u.getvertex(id,name);
+            v.push_back(u);
+            cout<<"Vertex added\n";
+        }
+        else{
+            cout<<"There exits already a vertex in graph with same id\n";
+        }
     }
     void addedge(){
         int ini,fin,w;
@@ -73,9 +85,21 @@ class graph{
         cin>>fin;
         cout<<"Enter weight\n";
         cin>>w;
-        ed.setid(ini,w,fin);
-        e.push_back(ed);
-        cout<<"Edge added\n";
+        bool a=true;
+        for(int i=0;i<e.size();i++){
+            if(e[i].getini()==ini&&e[i].getfin()==fin){
+                a=false;
+                break;
+            }
+        }
+        if(a){
+            ed.setid(ini,w,fin);
+            e.push_back(ed);
+            cout<<"Edge added\n";
+        }
+        else{
+            cout<<"Edge is already added\n";
+        }
     }
     void print(){
         for(int i=0;i<e.size();i++){
@@ -104,9 +128,10 @@ void graph::dijkstra(int a,int b){
             }
         }
     }
-    for (int i = 0; i < v.size(); i++) {
-        cout << "Shortest distance from " << v[a].getname() << " to " << v[i].getname() << " is " << distance[i] << endl;
-    }
+    // for (int i = 0; i < v.size(); i++) {
+    //     cout << "Shortest distance from " << v[a].getname() << " to " << v[i].getname() << " is " << distance[i] << endl;
+    // }
+    cout << "Shortest distance from " << v[a].getname() << " to " << v[b].getname() << " is " << distance[b] << endl;
 }
 int main(){
     graph g;
